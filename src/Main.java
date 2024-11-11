@@ -1,4 +1,5 @@
 import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) {
         JFrame miVentana = new JFrame("Running Spider");
@@ -8,6 +9,7 @@ public class Main {
         miVentana.setVisible(true);
         miVentana.setResizable(false);
         miVentana.setLocationRelativeTo(null);
+        miVentana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         while (true) {
             if (Piedras.nivel == 5) {

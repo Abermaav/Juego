@@ -9,7 +9,7 @@ public class Insecto implements KeyListener {
     public static int x = 10, y = 10;
 
     public void paint(Graphics g) {
-        URL hoyoUrl = getClass().getResource("src/hoyo.png");
+        URL hoyoUrl = getClass().getResource("/hoyo.png");
         if (hoyoUrl != null) {
             ImageIcon hoyo = new ImageIcon(hoyoUrl);
             g.drawImage(hoyo.getImage(), 500, 500, 150, 150, null);
@@ -17,7 +17,7 @@ public class Insecto implements KeyListener {
             System.err.println("Image not found: /hoyo.png");
         }
 
-        URL arañaUrl = getClass().getResource("src/araña.png");
+        URL arañaUrl = getClass().getResource("/araña.png");
         if (arañaUrl != null) {
             ImageIcon araña = new ImageIcon(arañaUrl);
             g.drawImage(araña.getImage(), x, y, 100, 100, null);
@@ -27,23 +27,23 @@ public class Insecto implements KeyListener {
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            x = x + 10;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            x = x - 10;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
-            y = y - 10;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            y = y + 10;
-        }
-    }
+    public void keyTyped(KeyEvent e) {}
 
     @Override
-    public void keyPressed(KeyEvent e) {}
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            x += 10;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+            x -= 10;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_UP) {
+            y -= 10;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+            y += 10;
+        }
+    }
 
     @Override
     public void keyReleased(KeyEvent e) {}

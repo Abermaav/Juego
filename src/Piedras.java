@@ -27,13 +27,12 @@ public class Piedras {
     }
 
     public void paint(Graphics g) {
-        URL rocaUrl = getClass().getResource("/roca.png");
+        URL rocaUrl = getClass().getResource("/piedra.png");
         ImageIcon piedra = null;
         if (rocaUrl != null) {
             piedra = new ImageIcon(rocaUrl);
-            g.drawImage(piedra.getImage(), xRoca1, yRoca1, 48, 48, null);
         } else {
-            System.err.println("Image not found: /roca.png");
+            System.err.println("Image not found: /piedra.png");
         }
 
         if (nivel >= 1 && piedra != null) {
@@ -52,7 +51,26 @@ public class Piedras {
 
     public boolean choque() {
         Area areaPersonaje = new Area(j.bicho.getBoundsBicho());
-        areaPersonaje.intersects(getBoundsPiedra());
+        Area areaRoca = new Area();
+
+        if (nivel >= 1) {
+            Ellipse2D piedra1 = new Ellipse2D.Double(xRoca1, yRoca1, 48, 48);
+            areaRoca.add(new Area(piedra1));
+        }
+        if (nivel >= 2) {
+            Ellipse2D piedra2 = new Ellipse2D.Double(xRoca2, yRoca2, 48, 48);
+            areaRoca.add(new Area(piedra2));
+        }
+        if (nivel >= 3) {
+            Ellipse2D piedra3 = new Ellipse2D.Double(xRoca3, yRoca3, 48, 48);
+            areaRoca.add(new Area(piedra3));
+        }
+        if (nivel >= 4) {
+            Ellipse2D piedra4 = new Ellipse2D.Double(xRoca4, yRoca4, 48, 48);
+            areaRoca.add(new Area(piedra4));
+        }
+
+        areaPersonaje.intersect(areaRoca);
         return !areaPersonaje.isEmpty();
     }
 
@@ -108,25 +126,24 @@ public class Piedras {
     }
 
     public Rectangle2D getBoundsPiedra() {
-        Ellipse2D piedra1, piedra2, piedra3, piedra4;
-
+        rocaArea = new Area();
         if (nivel >= 1) {
-            piedra1 = new Ellipse2D.Double(xRoca1, yRoca1, 48, 48);
+            Ellipse2D piedra1 = new Ellipse2D.Double(xRoca1, yRoca1, 48, 48);
             r1 = new Area(piedra1);
             rocaArea.add(r1);
         }
         if (nivel >= 2) {
-            piedra2 = new Ellipse2D.Double(xRoca2, yRoca2, 48, 48);
+            Ellipse2D piedra2 = new Ellipse2D.Double(xRoca2, yRoca2, 48, 48);
             r2 = new Area(piedra2);
             rocaArea.add(r2);
         }
         if (nivel >= 3) {
-            piedra3 = new Ellipse2D.Double(xRoca3, yRoca3, 48, 48);
+            Ellipse2D piedra3 = new Ellipse2D.Double(xRoca3, yRoca3, 48, 48);
             r3 = new Area(piedra3);
             rocaArea.add(r3);
         }
         if (nivel >= 4) {
-            piedra4 = new Ellipse2D.Double(xRoca4, yRoca4, 48, 48);
+            Ellipse2D piedra4 = new Ellipse2D.Double(xRoca4, yRoca4, 48, 48);
             r4 = new Area(piedra4);
             rocaArea.add(r4);
         }
