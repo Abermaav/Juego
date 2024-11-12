@@ -36,7 +36,7 @@ public class Juego extends JPanel {
 
         Font score = new Font("Arial", Font.BOLD, 25);
         g.setFont(score);
-        g.setColor(Color.blue);
+        g.setColor(new Color(255, 255, 255));
         g.drawString("Puntaje: " + rocas.getPuntos(), 520, 50);
 
         bicho.paint(g);

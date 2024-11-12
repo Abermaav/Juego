@@ -32,16 +32,16 @@ public class Insecto implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            x += 10;
+            x += 25;
         }
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            x -= 10;
+            x -= 25;
         }
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            y -= 10;
+            y -= 25;
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            y += 10;
+            y += 25;
         }
     }
 
@@ -58,3 +58,5 @@ public class Insecto implements KeyListener {
         return cuadradoArea.contains(getBoundsBicho().getBounds());
     }
 }
+
+

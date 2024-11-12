@@ -14,7 +14,7 @@ public class Piedras {
     public static int nivel = 1;
     int incremento = 2;
 
-    Area r1, r2, r3, r4, rocaArea;
+
 
     int inicioY = 0;
     int inicioX = 0;
@@ -23,12 +23,11 @@ public class Piedras {
 
     public Piedras(Juego j) {
         this.j = j;
-        rocaArea = new Area();
     }
 
     public void paint(Graphics g) {
         URL rocaUrl = getClass().getResource("/piedra.png");
-        ImageIcon piedra = null;
+        ImageIcon piedra = new ImageIcon(rocaUrl);
         if (rocaUrl != null) {
             piedra = new ImageIcon(rocaUrl);
         } else {
@@ -73,6 +72,7 @@ public class Piedras {
         areaPersonaje.intersect(areaRoca);
         return !areaPersonaje.isEmpty();
     }
+
 
     public void mover() {
         if (choque()) {
@@ -125,28 +125,6 @@ public class Piedras {
         return puntos;
     }
 
-    public Rectangle2D getBoundsPiedra() {
-        rocaArea = new Area();
-        if (nivel >= 1) {
-            Ellipse2D piedra1 = new Ellipse2D.Double(xRoca1, yRoca1, 48, 48);
-            r1 = new Area(piedra1);
-            rocaArea.add(r1);
-        }
-        if (nivel >= 2) {
-            Ellipse2D piedra2 = new Ellipse2D.Double(xRoca2, yRoca2, 48, 48);
-            r2 = new Area(piedra2);
-            rocaArea.add(r2);
-        }
-        if (nivel >= 3) {
-            Ellipse2D piedra3 = new Ellipse2D.Double(xRoca3, yRoca3, 48, 48);
-            r3 = new Area(piedra3);
-            rocaArea.add(r3);
-        }
-        if (nivel >= 4) {
-            Ellipse2D piedra4 = new Ellipse2D.Double(xRoca4, yRoca4, 48, 48);
-            r4 = new Area(piedra4);
-            rocaArea.add(r4);
-        }
-        return rocaArea.getBounds2D();
-    }
 }
+
+

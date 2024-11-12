@@ -1,5 +1,4 @@
 import javax.swing.*;
-
 public class Main {
     public static void main(String[] args) {
         JFrame miVentana = new JFrame("Running Spider");
@@ -10,26 +9,25 @@ public class Main {
         miVentana.setResizable(false);
         miVentana.setLocationRelativeTo(null);
         miVentana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         while (true) {
             if (Piedras.nivel == 5) {
-                int reiniciarJuego = JOptionPane.showConfirmDialog(null, "Has Ganado!!! ¿Quieres jugar de nuevo?", "Fin del Juego", JOptionPane.YES_NO_OPTION);
+                int reiniciarJuego = JOptionPane.showConfirmDialog(null, "Has Ganado!!!\n" +
+                        "¿Quieres jugar de nuevo?", "Fin del Juego", JOptionPane.YES_NO_OPTION);
                 if (reiniciarJuego == JOptionPane.YES_OPTION) {
                     reiniciarValores();
                 } else {
                     System.exit(0);
                 }
             }
-
             if (Juego.HaChocado) {
-                int reiniciarJuego = JOptionPane.showConfirmDialog(null, "Has Perdido!!! ¿Quieres jugar de nuevo?", "Fin del Juego", JOptionPane.YES_NO_OPTION);
+                int reiniciarJuego = JOptionPane.showConfirmDialog(null, "Has Perdido!!!\n" +
+                        "¿Quieres jugar de nuevo?", "Fin del Juego", JOptionPane.YES_NO_OPTION);
                 if (reiniciarJuego == JOptionPane.YES_OPTION) {
                     reiniciarValores();
                 } else {
                     System.exit(0);
                 }
             }
-
             game.repaint();
             try {
                 Thread.sleep(10);
@@ -38,7 +36,6 @@ public class Main {
             }
         }
     }
-
     public static void reiniciarValores() {
         Piedras.xRoca1 = 600;
         Piedras.yRoca1 = 700;
@@ -55,3 +52,6 @@ public class Main {
         Juego.HaChocado = false;
     }
 }
+
+
+
